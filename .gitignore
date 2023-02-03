@@ -1,5 +1,9 @@
-*.dmb
-*.rsc
-*.int
-*.lk
-*.zip
+# Ignore list for Eagle, a PCB layout tool
+
+# Backup files
+*.s#?
+
+# File Types
+
+*.csv
+
