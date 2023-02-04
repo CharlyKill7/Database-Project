@@ -1,0 +1,103 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema BLOCKBUSTER
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema BLOCKBUSTER
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `BLOCKBUSTER` DEFAULT CHARACTER SET utf8 ;
+USE `BLOCKBUSTER` ;
+
+
+-- -----------------------------------------------------
+-- Table `BLOCKBUSTER`.`customer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BLOCKBUSTER`.`customer` (
+  `customer_id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `lastname` VARCHAR(45) NULL,
+  `telephone` VARCHAR(45) NULL,
+  `mail` VARCHAR(45) NULL,
+  PRIMARY KEY (`customer_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `BLOCKBUSTER`.`films`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BLOCKBUSTER`.`films` (
+  `film_id` INT NOT NULL,
+  `title` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(1500) NOT NULL,
+  `release_year` CHAR(4) NOT NULL,
+  `language` VARCHAR(20) NOT NULL,
+  `original_language` VARCHAR(45) NOT NULL,
+  `rental_duration` INT NOT NULL,
+  `rental_rate` FLOAT NOT NULL,
+  `length` INT NOT NULL,
+  `replacement_cost` FLOAT NOT NULL,
+  `rating` VARCHAR(6) NOT NULL,
+  `special_features` VARCHAR(100) NOT NULL,
+  `actors` VARCHAR(300) NOT NULL,
+  `category` VARCHAR(25) NOT NULL,
+  `filmscol` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`film_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `BLOCKBUSTER`.`inventory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BLOCKBUSTER`.`inventory` (
+  `inventory_id` INT NOT NULL,
+  `film_id` INT NOT NULL,
+  `store_id` INT NOT NULL,
+  `films_film_id` INT NOT NULL,
+  PRIMARY KEY (`inventory_id`, `films_film_id`),
+  INDEX `fk_inventory_films1_idx` (`films_film_id` ASC) VISIBLE,
+  CONSTRAINT `fk_inventory_films1`
+    FOREIGN KEY (`films_film_id`)
+    REFERENCES `BLOCKBUSTER`.`films` (`film_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `BLOCKBUSTER`.`rental`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BLOCKBUSTER`.`rental` (
+  `rental_id` INT NOT NULL,
+  `rental_date` TIMESTAMP NOT NULL,
+  `inventory_id` INT NOT NULL,
+  `customer_id` INT NOT NULL,
+  `return_date` TIMESTAMP NOT NULL,
+  `staff_ID` INT NOT NULL,
+  `days` INT NOT NULL,
+  `customer_customer_id` INT NOT NULL,
+  `inventory_inventory_id` INT NOT NULL,
+  PRIMARY KEY (`rental_id`, `customer_customer_id`, `inventory_inventory_id`),
+  INDEX `fk_rental_customer_idx` (`customer_customer_id` ASC) VISIBLE,
+  INDEX `fk_rental_inventory1_idx` (`inventory_inventory_id` ASC) VISIBLE,
+  CONSTRAINT `fk_rental_customer`
+    FOREIGN KEY (`customer_customer_id`)
+    REFERENCES `BLOCKBUSTER`.`customer` (`customer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_rental_inventory1`
+    FOREIGN KEY (`inventory_inventory_id`)
+    REFERENCES `BLOCKBUSTER`.`inventory` (`inventory_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
