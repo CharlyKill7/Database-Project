@@ -74,10 +74,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BLOCKBUSTER`.`rental` (
   `rental_id` INT NOT NULL,
-  `rental_date` TIMESTAMP NOT NULL,
+  `rental_date` DATETIME NOT NULL,
   `inventory_id` INT NOT NULL,
   `customer_id` INT NOT NULL,
-  `return_date` TIMESTAMP NOT NULL,
+  `return_date` DATETIME NOT NULL,
   `staff_ID` INT NOT NULL,
   `days` INT NOT NULL,
   `customer_customer_id` INT NOT NULL,
