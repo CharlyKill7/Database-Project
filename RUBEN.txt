@@ -1,0 +1,70 @@
+-- -----------------------------------------------------
+-- Table `superblockbuster`.`customer`
+-- -----------------------------------------------------
+ALTER TABLE `superblockbuster`.`customer` 
+	ADD PRIMARY KEY (`customer_id`);
+
+-- -----------------------------------------------------
+-- Table `superblockbuster`.`customer_master`
+-- -----------------------------------------------------
+ALTER TABLE `superblockbuster`.`customer_master` 
+  ADD PRIMARY KEY (`CUSTOMER ID`);
+
+-- -----------------------------------------------------
+-- Table `superblockbuster`.`films`
+-- -----------------------------------------------------
+ALTER TABLE `superblockbuster`.`films` 
+  ADD PRIMARY KEY (`film_id`);
+
+-- -----------------------------------------------------
+-- Table `superblockbuster`.`inventory`
+-- -----------------------------------------------------
+ALTER TABLE `superblockbuster`.`inventory`
+  ADD PRIMARY KEY (`inventory_id`);
+  
+ALTER TABLE `superblockbuster`.`inventory`
+  ADD CONSTRAINT `fk_inventory_films1`
+    FOREIGN KEY (`film_id`)
+    REFERENCES `superblockbuster`.`films` (`film_id`);
+
+-- -----------------------------------------------------
+-- Table `blockbuster`.`inventory_master`
+-- -----------------------------------------------------
+ALTER TABLE `superblockbuster`.`inventory_master`
+  ADD PRIMARY KEY (`INVENTORY ID`);
+ALTER TABLE `superblockbuster`.`inventory_master`
+  ADD CONSTRAINT `fk_inventory_master_films1`
+    FOREIGN KEY (`FILM ID`)
+    REFERENCES `superblockbuster`.`films` (`film_id`);
+
+
+
+-- -----------------------------------------------------
+-- Table `blockbuster`.`rental`
+-- -----------------------------------------------------
+ALTER TABLE `superblockbuster`.`rental`
+  ADD PRIMARY KEY (`rental_id`);
+ALTER TABLE `superblockbuster`.`rental`
+  ADD CONSTRAINT `fk_rental_inventory`
+    FOREIGN KEY (`inventory_id`)
+    REFERENCES `superblockbuster`.`inventory` (`inventory_id`);
+ALTER TABLE `superblockbuster`.`rental`
+  ADD CONSTRAINT `fk_rental_customer1`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `superblockbuster`.`customer` (`customer_id`);
+
+
+
+-- -----------------------------------------------------
+-- Table `blockbuster`.`rental_master`
+-- -----------------------------------------------------
+ALTER TABLE `superblockbuster`.`rental_master` 
+  ADD PRIMARY KEY (`RENTALS`);
+ALTER TABLE `superblockbuster`.`rental_master` 
+  ADD CONSTRAINT `fk_rental_master_inventory_master1`
+    FOREIGN KEY (`INVENTORY ID`)
+    REFERENCES `superblockbuster`.`inventory_master` (`INVENTORY ID`);
+ALTER TABLE `superblockbuster`.`rental_master`
+  ADD CONSTRAINT `fk_rental_master_customer_master1`
+    FOREIGN KEY (`CUSTOMER ID`)
+    REFERENCES `superblockbuster`.`customer_master` (`CUSTOMER ID`);
