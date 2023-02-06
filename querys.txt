@@ -18,7 +18,7 @@ LEFT JOIN films ON inventory.film_id = films.film_id
 - CUSTOMER_MASTER
 
 SELECT customer.customer_id AS 'CUSTOMER ID', name AS 'NAME', lastname AS 'LAST NAME', telephone AS TELEPHONE, 
-	   mail AS EMAIL, sum((rental_rate * (DATEDIFF(return_date, rental_date) + 1))) AS 'TOTAL SPENT',
+	   mail AS EMAIL, round(sum((rental_rate * (DATEDIFF(return_date, rental_date) + 1))), 2) AS 'TOTAL SPENT',
        GROUP_CONCAT(' ',title) AS 'FILMS RENTED'
        
 FROM rental
@@ -30,7 +30,7 @@ LEFT JOIN customer ON customer.customer_id = rental.customer_id
 GROUP BY customer.customer_id, name , lastname, telephone, mail
 ;
 
-INVENTORY MASTER
+INVENTORY_MASTER
 
 SELECT inventory.inventory_id AS 'INVENTORY ID', film_id AS 'FILM ID', store_id AS 'STORE ID', 
 		CASE
@@ -42,6 +42,7 @@ FROM inventory
 
 LEFT JOIN rental ON rental.inventory_id = inventory.inventory_id
 ;
+
 
 
 ## CONSULTAS ESPECÍFICAS
