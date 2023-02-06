@@ -1,6 +1,6 @@
 # W3 Project - Building mySQL Data-base
 
-![portada](https://github.com/Calbacho/w3-database-project/blob/main/videoclip2.jpg)
+![portada](https://github.com/CharlyKill7/Database-Project/blob/main/images/videoclub.jpg)
 
 ## ⛓️ Índice
 
@@ -25,7 +25,7 @@ En este proyecto tenemos que limpiar siete .csv provenientes de un negocio de vi
 
  12 columnas describiendo los atributos más importantes de cada CD, desde el nombre de la película, hasta el lenguaje, el contenido adicional y los costes de alquiler.
  
-![films](https://github.com/Calbacho/w3-database-project/blob/main/films.png)
+![films](https://github.com/CharlyKill7/Database-Project/blob/main/images/films.png)
 
 </details>
 
@@ -36,7 +36,7 @@ En este proyecto tenemos que limpiar siete .csv provenientes de un negocio de vi
 ID del actor, nombres y apellidos de los actores.
 <br>
 <br>
-![Actors](https://github.com/Calbacho/w3-database-project/blob/main/Actors.png)
+![Actors](https://github.com/CharlyKill7/Database-Project/blob/main/images/Actors.png)
 
 </details>
 
@@ -47,7 +47,7 @@ ID del actor, nombres y apellidos de los actores.
 ID de categoria, nombre de categoria (comedia, aventura, romance)
 <br>
 <br>
-![category](https://github.com/Calbacho/w3-database-project/blob/main/category.png)
+![category](https://github.com/CharlyKill7/Database-Project/blob/main/images/category.png)
 
 </details>
 
@@ -58,7 +58,7 @@ ID de categoria, nombre de categoria (comedia, aventura, romance)
 ID de inventario, ID de pelicula, ID Tienda
 <br>
 <br>
-![inventory](https://github.com/Calbacho/w3-database-project/blob/main/inventory.png)
+![inventory](https://github.com/CharlyKill7/Database-Project/blob/main/images/inventory.png)
 
 </details>
 
@@ -69,7 +69,7 @@ ID de inventario, ID de pelicula, ID Tienda
 ID de lenguaje, nombre de lenguaje (Ingles, Italiano, etc)
 <br>
 <br>
-![language](https://github.com/Calbacho/w3-database-project/blob/main/language.png)
+![language](https://github.com/CharlyKill7/Database-Project/blob/main/images/language.png)
 
 </details>
 
@@ -80,7 +80,7 @@ ID de lenguaje, nombre de lenguaje (Ingles, Italiano, etc)
 Nombre y apellido de los actores, ID de inventario, titulos de peliculas donde aparece el respectivo actor o actriz
 <br>
 <br>
-![oldhdd](https://github.com/Calbacho/w3-database-project/blob/main/oldhdd.png)
+![oldhdd](https://github.com/CharlyKill7/Database-Project/blob/main/images/oldhdd.png)
 
 </details>
 
@@ -92,7 +92,7 @@ ID de alquiler, fecha de alquiler, fecha de retorno, ID de inventario, ID de cli
 <br>
 <br>
 
-![rental](https://github.com/Calbacho/w3-database-project/blob/main/rental.png)
+![rental](https://github.com/CharlyKill7/Database-Project/blob/main/images/rental.png)
 
 </details>
 
@@ -114,7 +114,7 @@ En primer lugar hemos realizado un ejercicio analítico de cada uno de los siete
 <summary>¿ACTRIZ DUPLICADA?</summary>
 <br>
 
- ![susan](https://github.com/Calbacho/w3-database-project/blob/main/Susandavis.png)
+ ![susan](https://github.com/CharlyKill7/Database-Project/blob/main/images/Susandavis.png)
 
 </details>
 
@@ -142,7 +142,7 @@ Al ser todos los alquileres previos a 2006, concluimos que la columna **release_
 <summary>¿FALTA UN RENTAL ID?</summary>
 <br>
 
-![susan](https://github.com/Calbacho/w3-database-project/blob/main/rental_head.png)
+![susan](https://github.com/CharlyKill7/Database-Project/blob/main/images/rental_head.png)
 <br>
 
 Como se puede observar, la diferencia entre **id** y **rental_id** pasa de ser **+1** al principio a **+2** al final, por lo que se intuye que se han saltado un rental_id.
@@ -193,7 +193,7 @@ Nuestra intención siempre fue simplificar, además de profesionalizar, el manej
 
 <br>
 
-<img src="https://github.com/Calbacho/w3-database-project/blob/main/EERD_inicial.png" width="550" height="400" />
+<img src="https://github.com/CharlyKill7/Database-Project/blob/main/images/EERD_inicial.png" width="550" height="400" />
 
 <a name="transformación"/>
 
@@ -229,7 +229,7 @@ LEFT JOIN rental ON rental.inventory_id = inventory.inventory_id
 
 </details>
  
-![inventory_master](https://github.com/Calbacho/w3-database-project/blob/main/inventory_master.png)
+![inventory_master](https://github.com/CharlyKill7/Database-Project/blob/main/images/inventory_master.png)
 
 </details>
 
@@ -248,7 +248,7 @@ LEFT JOIN inventory ON inventory.inventory_id = rental.inventory_id
 LEFT JOIN films ON inventory.film_id = films.film_id
 ; 
  ```
-![rental_master](https://github.com/Calbacho/w3-database-project/blob/main/rental_master.png)
+![rental_master](https://github.com/CharlyKill7/Database-Project/blob/main/images/rental_master.png)
  
 </details>
 
@@ -270,7 +270,7 @@ LEFT JOIN customer ON customer.customer_id = rental.customer_id
 GROUP BY customer.customer_id, name , lastname, telephone, mail
 ;
  ```
-![customer_master](https://github.com/Calbacho/w3-database-project/blob/main/customer_master.png)
+![customer_master](https://github.com/CharlyKill7/Database-Project/blob/main/images/customer_master.png)
 
 </details>
 
@@ -295,7 +295,7 @@ ORDER BY Rentals desc
 LIMIT 5
  ```
 
-![top_clientes_cantidad](https://github.com/Calbacho/w3-database-project/blob/main/top_clientes_cantidad.PNG)
+![top_clientes_cantidad](https://github.com/CharlyKill7/Database-Project/blob/main/images/top_clientes_cantidad.PNG)
 	
 </details>
 
@@ -313,7 +313,7 @@ ORDER BY 'Total Spent' desc
 LIMIT 5 
  ```
 
-![top_clientes_income2](https://github.com/Calbacho/w3-database-project/blob/main/top_clientes_income2.PNG)
+![top_clientes_income2](https://github.com/CharlyKill7/Database-Project/blob/main/images/top_clientes_income2.PNG)
 
 </details>
 
@@ -331,6 +331,6 @@ ORDER BY Alquileres DESC
 LIMIT 5
  ```
 
-![top_pelis](https://github.com/Calbacho/w3-database-project/blob/main/top_pelis.png)
+![top_pelis](https://github.com/CharlyKill7/Database-Project/blob/main/images/top_pelis.png)
 
 </details>
